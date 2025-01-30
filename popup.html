@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Extension Verifier</title>
+    <style>
+        body {
+            width: 500px;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .search-container {
+            margin-bottom: 15px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .extension-card {
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .extension-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .permission-list {
+            margin-top: 5px;
+            color: #666;
+        }
+
+        .warning {
+            color: #d93025;
+        }
+
+        .error {
+            color: #d93025;
+            padding: 10px;
+            background-color: #fce8e6;
+            border-radius: 4px;
+        }
+
+        .extension-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+
+        .store-link {
+            color: #2196F3;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid #2196F3;
+            border-radius: 4px;
+        }
+
+        .store-link:hover {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .active-on-page {
+            border-left: 4px solid #4CAF50;
+        }
+
+        .active-badge {
+            font-size: 12px;
+            color: #4CAF50;
+            margin-right: 10px;
+        }
+
+        .current-url {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 15px;
+            word-break: break-all;
+        }
+
+        .tab-info {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .active-count {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Extension Verifier</h2>
+    <div id="tab-info" class="tab-info">
+        <div id="current-url" class="current-url"></div>
+        <div id="active-extensions-count"></div>
+    </div>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search extensions...">
+    </div>
+    <div id="extensions-list"></div>
+    <script type="module" src="popup.js"></script>
+</body>
+
+</html>
